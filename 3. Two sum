@@ -2,6 +2,8 @@
  * @param {number[]} nums
  * @param {number} target
  * @return {number[]}
+* logic: creating an object of seen elements with keys as the elements and values as their indices in the main nums object. Reason: easy retrieval
+* and returning element as soon as we find one
  */
 var twoSum = function(nums, target) {
     const mapObject={}
@@ -15,3 +17,4 @@ var twoSum = function(nums, target) {
         mapObject[num]=i
     }
 };
+
