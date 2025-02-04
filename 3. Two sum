@@ -18,3 +18,13 @@ var twoSum = function(nums, target) {
     }
 };
 
+Python:
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        dictSeen={}
+        for i in range(len(nums)):
+            if(dictSeen.get(target-nums[i])!= None):
+                return [i,dictSeen.get(target-nums[i])]
+            else:
+                dictSeen[nums[i]]=i
