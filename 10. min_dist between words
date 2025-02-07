@@ -1,0 +1,10 @@
+from collections import Counter
+
+class Solution:
+    def shortestDistance(self, wordsDict: List[str], word1: str, word2: str) -> int:
+        min_dist=first_idx=second_idx= float('inf')
+        for i,word in enumerate(wordsDict):
+            if word==word1: first_idx=i
+            elif word==word2: second_idx=i
+            min_dist=min(abs(first_idx-second_idx), min_dist)
+        return min_dist
