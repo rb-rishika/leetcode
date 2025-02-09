@@ -1,0 +1,22 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        # updatedStr= s
+        # low=0
+        # high=len(updatedStr)-1
+        # while low<high:
+        #     while low < len(updatedStr) and not updatedStr[low].isalnum():
+        #         #used for skipping aphanumeric values
+        #         low += 1
+        #     while high > 0 and not updatedStr[high].isalnum():
+        #         #used for skipping aphanumeric values
+        #         print("kk", updatedStr[high])
+        #         high -= 1
+        #     if low<high:
+        #         if (updatedStr[low].lower()!=updatedStr[high].lower()):
+        #             return False
+        #         else:
+        #             low+=1 
+        #             high-=1
+        # return True     
+        cleaned = "".join(filter(str.isalnum, s)).lower()
+        return cleaned == cleaned[::-1]
