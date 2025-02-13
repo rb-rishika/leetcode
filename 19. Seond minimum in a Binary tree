@@ -1,0 +1,27 @@
+https://leetcode.com/problems/second-minimum-node-in-a-binary-tree/description/
+
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution(object):
+    def findSecondMinimumValue(self, root):
+        # Initialize result with infinity
+        self.result = float('inf')
+
+        # Helper function for DFS traversal
+        def traverse(node):
+            if not node:
+                return
+            # Update result only if it's strictly greater than root's value
+            if root.val < node.val < self.result:
+                self.result = node.val
+            traverse(node.left)
+            traverse(node.right)
+
+        traverse(root)
+
+        # If result was never updated, return -1
+        return self.result if self.result != float('inf') else -1
