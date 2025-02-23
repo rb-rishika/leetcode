@@ -1,0 +1,25 @@
+# Online Python compiler (interpreter) to run Python online.
+# Write Python 3 code in this online editor and run it.
+
+# #***** BUBBLE SORT ****
+# in bubble sort the elements start forting in correct order towards the right of the array
+#https://youtu.be/xli_FI7CuzA?si=j2XFoLUDdcEqxNEI
+n=5
+arr=[7,6,4,3,2]
+for i in range(n):
+    for j in range(n-i-1):
+        if arr[j+1]<arr[j]:
+            arr[j+1],arr[j]=arr[j],arr[j+1]
+    print(arr)
+print(arr)
+
+# #***** INSERTION SORT ****
+# in insertion sort, sorting happens left to right
+#https://youtu.be/JU767SDMDvA?si=4gJs4h0M9d7IYuaO
+
+for i in range(len(arr)):
+    j=i
+    while(j>0 and arr[j]<arr[j-1]):
+        arr[j], arr[j-1]=arr[j-1],arr[j]
+        j-=1
+print(arr)
