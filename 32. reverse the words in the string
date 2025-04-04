@@ -1,0 +1,30 @@
+https://leetcode.com/problems/reverse-words-in-a-string-ii/
+
+class Solution:
+    def reverse(start, end, list):
+        while(start<end):
+            list[start], list[end]=list[end], list[start]
+            start+=1
+            end-=1
+    def reverseWords(self, s: List[str]) -> None:
+        def reverse(start, end, l):
+            while(start<end):
+                l[start], l[end]=l[end], l[start]
+                start+=1
+                end-=1
+            return l
+        """
+        Do not return anything, modify s in-place instead.
+        """
+        a= reverse(0, len(s)-1, s)
+        print(a)
+        #reversing words in the list
+        startIdx=0
+        a.append(" ")
+        for i in range(len(a)):
+            if a[i]==" ":
+                reverse(startIdx, i-1, a)
+                startIdx=i+1
+        a.pop()
+        return a
+    
