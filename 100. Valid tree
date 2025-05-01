@@ -1,0 +1,36 @@
+class Solution:
+    def validTree(self, n: int, edges: List[List[int]]) -> bool:
+
+        #Empty tree is a valid tree
+        if not edges or n==0:
+            return True
+
+        adj = [[] for _ in range(n)]
+        for u, v in edges:
+            adj[u].append(v)
+            adj[v].append(u)
+
+        visit=set()
+        def dfs(curr, prev):
+            if curr in visit:
+                return False
+            visit.add(curr)
+            for nei in adj[curr]:
+                if nei==prev:
+                    continue
+                if not dfs(nei,curr ):
+                    return False
+            return True
+
+        return dfs(0, -1) and len(visit) == n
+# You’re combining two conditions:
+# 	1.	dfs(0, -1) – Ensures no cycles exist.
+# 	2.	len(visit) == n – Ensures the graph is fully connected (i.e., all nodes are reachable from node 0).
+
+# Why len(visit) == n is essential:
+
+# A graph with n nodes and n - 1 edges might still be disconnected — meaning some nodes are isolated and never visited during DFS.
+
+
+
+        
