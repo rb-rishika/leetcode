@@ -9,3 +9,5 @@ def strStr(self, haystack: str, needle: str) -> int:
             return i
 
     return -1
+
+Complexity of above - O(m*n)
