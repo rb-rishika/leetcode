@@ -1,0 +1,16 @@
+https://leetcode.com/problems/isomorphic-strings/description/?envType=problem-list-v2&envId=w22iwgpj
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        hashmap = {}
+        for i in range(len(s)):
+            if (s[i] in hashmap):
+                if hashmap[s[i]]==t[i]:
+                    continue
+                else:
+                    return False
+            else:
+                if t[i] in hashmap.values():
+                    return False
+                hashmap[s[i]]=t[i]
+        return True
+return len(set(zip(s, t))) == len(set(s)) == len(set(t))
