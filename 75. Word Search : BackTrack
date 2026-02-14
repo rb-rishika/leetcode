@@ -30,3 +30,8 @@ class Solution:
         return False
 ###########################################################     
 --complex: O(m* 4^^n) m= number of cells in board. 
+1) Visited is path-specific, not global
+When you call dfs(r, c, i), you’re exploring one specific path trying to match word[i:]. Marking board[r][c] = "#"  prevents revisiting the same cell within this path, which would cause cycles like (r, c) → … → (r, c).
+2) Multiple starts need a clean board
+Your outer loop tries every cell as a starting point:
+If you didn’t restore, any cell touched by an earlier failed attempt would remain "#", breaking future valid searches that start elsewhere.
