@@ -1,0 +1,32 @@
+class Solution:
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        #Approach 1
+         #x-num is the key that can be used to sort the values. It will sort the number in the ascending order of the value=|x-num|
+        # res = []
+        # i = 0
+        # while(i<k):
+        #     res.append(sorted_arr[i])
+        #     i+=1
+        # sorted_arr = sorted(arr, key = lambda num: abs(x-num))
+        # return sorted(sorted_arr[:k])
+
+
+        #Approach 2: Two pointers
+        l=0
+        r=len(arr)-1
+        while (r-l)+1>=k:
+            if abs(arr[l]-x)<=abs(arr[r]-x):
+                r-=1
+            else:
+                l+=1
+        return arr[l:r+1]
+
+'''
+why we don't have window size+1>=k conparison:
+while (r - l) >= k is equivalent to
+while (r - l + 1) >= k + 1 → while size >= k + 1 → while size > k.
+That’s exactly what you want: keep shrinking while the window has more than k elements.
+When r - l == k, the loop runs one more time, shrinks to r - l == k - 1, i.e., size = k, and then stops.
+
+It will reduce the window even further
+'''
